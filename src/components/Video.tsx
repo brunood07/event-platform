@@ -8,6 +8,7 @@ import {
 } from "phosphor-react";
 
 import "@vime/core/themes/default.css";
+import { Spinner } from "./Spinner";
 
 const GET_LESSON_BY_SLUG_QUERY = gql`
   query GetLessonBySlug($slug: String) {
@@ -50,12 +51,10 @@ export function Video(props: VideoProps) {
     },
   });
 
-  console.log(data);
-
   if (!data) {
     return (
-      <div className="flex-1">
-        <p>Carregando...</p>
+      <div className="flex flex-1 items-center justify-center">
+        <Spinner />
       </div>
     );
   }
